@@ -183,8 +183,8 @@ function WebIOPi() {
 
 WebIOPi.prototype.init = function() {
 	$.getJSON(w().context + "map", function(data) {
-		console.log('##111');
-		console.log(data);
+		//console.log('##111');
+		//console.log(data);
 		var count = w().PINS.length;
 		for (var i = 0; i<count-1; i++) {
 			var type = w().TYPE.GPIO;
@@ -231,11 +231,11 @@ WebIOPi.prototype.map = function (pin, type, value) {
 	w().PINS[pin] = Object();
 	w().PINS[pin].type = type
 	w().PINS[pin].value = value;
-	console.log(type.value, ' ## ', w().TYPE.GPIO.value, ' ', type.value == w().TYPE.GPIO.value )
+	//console.log(type.value, ' ## ', w().TYPE.GPIO.value, ' ', type.value == w().TYPE.GPIO.value )
 	if (type.value == w().TYPE.GPIO.value) {
 		w().GPIO[value].mapped = true;
 	}
-	console.log(w().GPIO[value]);
+	//console.log(w().GPIO[value]);
 }
 
 WebIOPi.prototype.addALT = function (alt, gpio, name) {
@@ -808,7 +808,7 @@ GPIOPort.prototype.refreshUI = function() {
 			var cell = $("<td>");
 			var button = webiopi().createButton(port.name + "_" + i + "_func", "IN", function() {
 				var func = $(this).text();
-				console.log(func);
+				//console.log(func);
 				if (func == "IN") {
 					func = "OUT";
 				}
